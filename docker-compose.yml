@@ -1,4 +1,5 @@
 version: '3.6'
+name: prctr-hsa-hw02
 services:
   telegraf:
     image: telegraf:1.29-alpine
@@ -25,7 +26,7 @@ services:
       - influxdb_data:/var/lib/influxdb
 
   grafana:
-    image: grafana/grafana:8.0.2
+    image: grafana/grafana:10.2.2
     depends_on:
       - influxdb
     env_file: configuration.env
