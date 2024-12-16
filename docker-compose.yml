@@ -60,6 +60,19 @@ services:
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
 
+  nginx:
+    image: nginx:1.25-alpine
+    ports:
+      - '127.0.0.1:80:80'
+      - '127.0.0.1:443:443'
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./nginx/www:/usr/share/nginx/html:ro
+    depends_on:
+      - grafana
+      - elasticsearch
+
 volumes:
   grafana_data: {}
   influxdb_data: {}

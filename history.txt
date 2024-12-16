@@ -5,3 +5,6 @@ import dashboard
     https://grafana.com/grafana/dashboards/61-telegraf-metrics/
 
 docker compose restart telegraf
+
+---
+New-Item -ItemType Directory -Path "nginx\conf.d", "nginx\ssl", "nginx\www" -Force
