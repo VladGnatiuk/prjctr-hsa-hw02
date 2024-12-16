@@ -116,6 +116,9 @@ async def check_mongo_health():
 
 @app.get("/constant")
 async def get_constant():
+    s = 0
+    for i in range(1000000):
+        s += i
     return {
         "value": 42,
         "message": "This is a constant value"
