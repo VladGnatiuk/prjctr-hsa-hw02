@@ -2,9 +2,12 @@ version: '3.6'
 services:
   telegraf:
     image: telegraf:1.29-alpine
+    user: "telegraf:root"
+    group_add:
+      - "1001"
     volumes:
-    - ./telegraf/etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro
-    - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./telegraf/etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - influxdb
     links:

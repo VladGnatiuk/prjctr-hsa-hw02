@@ -1,0 +1,12 @@
+docker-compose down
+docker-compose up -d
+
+wsl
+    getent group docker | cut -d: -f3
+        1001
+
+docker exec docker-telegraf-influx-grafana-stack-telegraf-1 whoami
+
+sudo usermod -aG docker your_username
+
+stat /var/run/docker.sock
