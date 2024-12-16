@@ -72,6 +72,20 @@ services:
     depends_on:
       - grafana
       - elasticsearch
+      - fastapi
+
+  fastapi:
+    build: 
+      context: ./myapi
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      - mongodb
+      - elasticsearch
+    environment:
+      - MONGODB_URL=mongodb://root:example@mongodb:27017/
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
 
 volumes:
   grafana_data: {}

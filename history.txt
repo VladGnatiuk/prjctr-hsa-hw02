@@ -1,6 +1,8 @@
 docker-compose down
 docker-compose up -d
 
+docker-compose up --build
+
 import dashboard
     https://grafana.com/grafana/dashboards/61-telegraf-metrics/
 
